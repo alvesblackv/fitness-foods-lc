@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('url');
             $table->string('imported_t');
             $table->string('creator');
-            $table->timestamp('created_at');
             $table->string('product_name');
             $table->string('quantity');
             $table->string('brands')->nullable();
