@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('code')->unique();
             $table->enum('status', ['draft', 'trash', 'published']);
             $table->string('url');
-            $table->string('imported_t');
+            $table->dateTime('imported_t');
             $table->string('creator');
             $table->string('product_name');
             $table->string('quantity');
@@ -28,12 +28,13 @@ return new class extends Migration
             $table->longText('stores')->nullable();
             $table->longText('ingredients_text')->nullable();
             $table->longText('traces')->nullable();
+            $table->string('serving_size')->nullable();
             $table->decimal('serving_quantity')->nullable();
             $table->integer('nutriscore_score')->nullable();
             $table->string('nutriscore_grade')->nullable();
             $table->string('main_category')->nullable();
             $table->string('image_url')->nullable();
-
+            $table->date('last_modified_t')->nullable();
             $table->timestamps();
         });
     }
