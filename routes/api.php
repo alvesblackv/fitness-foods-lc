@@ -1,6 +1,10 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\ApiStatus\ShowApiStatusController;
+use App\Http\Controllers\Product\DeleteProductController;
+use App\Http\Controllers\Product\ShowProductController;
+use App\Http\Controllers\Product\ShowProductsController;
+use App\Http\Controllers\Product\UpdateProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,4 +18,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', fn() => response()->json(['message' => 'alive']));
+Route::get('/', ShowApiStatusController::class);
+
+Route::prefix('/products')->group(fn() => [
+    Route::put('/{code}', UpdateProductController::class),
+    Route::delete('/{code}', DeleteProductController::class),
+    Route::get('/{code}', ShowProductController::class),
+    Route::get('/', ShowProductsController::class)
+]);
