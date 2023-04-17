@@ -10,11 +10,12 @@ class ApiKeyMiddleware
 {
     public function handle(Request $request, Closure $next): Response
     {
-        if(!$request->hasHeader('api_key')) {
+
+        if(!$request->hasHeader('x-api-token')) {
             return response()->json(['message' => 'Você não possui permissão para acessar esse endpoint'], 401);
         }
 
-        if($request->header('api_key') != config('services.auth.api_token')) {
+        if($request->header('x-api-token') != config('services.auth.api_token')) {
             return response()->json(['message' => 'Você não possui permissão para acessar esse endpoint'], 401);
         }
 

@@ -11,7 +11,10 @@ class ShowProductTest extends TestCase
     public function test_try_to_retrieve_a_product(): void
     {
         $product = Product::factory()->create();
-        $response = $this->getJson(route('product-show', ['code' => $product->code]));
+        $response = $this->getJson(route('product-show',
+            ['code' => $product->code]),
+            ['x-api-token' => config('services.auth.api_token')]
+        );
 
         $response->assertOk();
         $this->assertDatabaseHas('products', [
@@ -23,7 +26,10 @@ class ShowProductTest extends TestCase
     public function test_try_to_request_a_code_invalid()
     {
         $product = Product::factory()->make();
-        $response = $this->getJson(route('product-show', ['code' => $product->code]));
+        $response = $this->getJson(route('product-show',
+            ['code' => $product->code]),
+            ['x-api-token' => config('services.auth.api_token')]
+        );
 
         $response->assertUnprocessable();
     }
