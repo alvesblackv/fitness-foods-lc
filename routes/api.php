@@ -17,12 +17,14 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
+Route::middleware('api_key')->group(fn() => [
+    Route::get('/', ShowApiStatusController::class)->name('show-api-status'),
 
-Route::get('/', ShowApiStatusController::class);
-
-Route::prefix('/products')->group(fn() => [
-    Route::put('/{code}', UpdateProductController::class),
-    Route::delete('/{code}', DeleteProductController::class),
-    Route::get('/{code}', ShowProductController::class),
-    Route::get('/', ShowProductsController::class)
+    Route::prefix('/products')->group(fn() => [
+        Route::put('/{code}', UpdateProductController::class)->name('product-update'),
+        Route::delete('/{code}', DeleteProductController::class)->name('product-delete'),
+        Route::get('/{code}', ShowProductController::class)->name('product-show'),
+        Route::get('/', ShowProductsController::class)->name('products-show')
+    ])
 ]);
+

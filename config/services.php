@@ -33,5 +33,8 @@ return [
 
     'open_food' => [
         'base_url' => 'https://challenges.coode.sh/food/data/json'
+    ],
+    'auth' => [
+        'api_token' => env('API_KEY')
     ]
 ];
