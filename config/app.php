@@ -187,6 +187,7 @@ return [
          */
 
         \App\Providers\RepositoryServiceProvider::class,
+        \App\Providers\ApiFoodServiceProvider::class,
         /*
          * Application Service Providers...
          */

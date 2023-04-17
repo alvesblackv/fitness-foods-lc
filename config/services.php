@@ -31,4 +31,7 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'open_food' => [
+        'base_url' => 'https://challenges.coode.sh/food/data/json'
+    ]
 ];
