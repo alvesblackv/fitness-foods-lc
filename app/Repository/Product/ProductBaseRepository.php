@@ -15,4 +15,6 @@ interface ProductBaseRepository
     public function findProductByCode(string $code): array;
 
     public function getAllProducts(): array|LengthAwarePaginator;
+
+    public function createOrUpdate(array $data): bool;
 }

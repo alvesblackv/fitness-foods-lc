@@ -66,4 +66,41 @@ class ProductEloquentRepository implements ProductBaseRepository
             return [];
         }
     }
+
+    public function createOrUpdate(array $data): bool
+    {
+        $dataCollection = collect($data)
+            ->only([
+                'code',
+                'url',
+                'creator',
+                'product_name',
+                'quantity',
+                'brands',
+                'categories',
+                'labels',
+                'cities',
+                'purchase_places',
+                'stores',
+                'ingredients_text',
+                'traces',
+                'serving_quantity',
+                'nutriscore_score',
+                'nutriscore_grade',
+                'main_category',
+                'image_url'
+            ])
+            ->filter(fn($product) => $product != '');
+
+        $codeFiltered = filter_var($dataCollection['code'], FILTER_SANITIZE_NUMBER_INT);
+        $dataCollection->put('code', $codeFiltered);
+        try {
+
+            Product::updateOrCreate($dataCollection->toArray());
+            return true;
+        } catch (Exception $exception) {
+            Log::error($exception->getMessage());
+            return false;
+        }
+    }
 }
