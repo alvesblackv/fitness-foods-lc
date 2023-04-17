@@ -26,7 +26,7 @@ class ProductFactory extends Factory
             'ingredients_text' => $this->faker->realText,
             'traces' => $this->faker->realText,
             'serving_size' => $this->faker->realText,
-            'serving_quantity' => $this->faker->randomFloat(),
+            'serving_quantity' => '2.4',
             'nutriscore_score' => $this->faker->numberBetween(0, 100),
             'nutriscore_grade' => 'd',
             'main_category' => 'en:madeleines',
