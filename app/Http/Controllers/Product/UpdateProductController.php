@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Product;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Product\UpdateProductRequest;
 use App\Repository\Product\ProductBaseRepository;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,7 @@ class UpdateProductController extends Controller
     {
     }
 
-    public function __invoke(Request $request)
+    public function __invoke(UpdateProductRequest $request)
     {
         $productEdited = $this->repository->updateProduct($request->validated());
 

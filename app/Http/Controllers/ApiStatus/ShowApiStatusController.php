@@ -7,8 +7,8 @@ use Illuminate\Http\JsonResponse;
 
 class ShowApiStatusController extends Controller
 {
-    public function __invoke(): JsonResponse
+    public function __invoke(): \Illuminate\Http\Response
     {
-        //
+        return response()->noContent();
     }
 }
