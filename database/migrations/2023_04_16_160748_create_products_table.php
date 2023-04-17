@@ -14,14 +14,14 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('code')->unique();
-            $table->enum('status', ['draft', 'trash', 'published']);
-            $table->string('url');
-            $table->dateTime('imported_t');
+            $table->enum('status', ['draft', 'trash', 'published'])->default('published');
+            $table->longText('url');
+            $table->timestamp('imported_t')->useCurrent();
             $table->string('creator');
-            $table->string('product_name');
-            $table->string('quantity');
+            $table->string('product_name')->nullable();
+            $table->string('quantity')->nullable();
             $table->string('brands')->nullable();
-            $table->longText('categories');
+            $table->longText('categories')->nullable();
             $table->string('labels')->nullable();
             $table->string('cities')->nullable();
             $table->longText('purchase_places')->nullable();
@@ -35,6 +35,7 @@ return new class extends Migration
             $table->string('main_category')->nullable();
             $table->string('image_url')->nullable();
             $table->date('last_modified_t')->nullable();
+            $table->string('created_t')->nullable();
             $table->timestamps();
         });
     }
