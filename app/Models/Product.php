@@ -31,4 +31,8 @@ class Product extends Model
         'main_category',
         'image_url',
     ];
+
+    protected $hidden = [
+        'created_at', 'updated_at'
+    ];
 }
