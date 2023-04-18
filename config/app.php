@@ -188,6 +188,7 @@ return [
 
         \Domain\Product\Providers\RepositoryServiceProvider::class,
         \Domain\CronJob\Providers\CronJobServiceProvider::class,
+        \Domain\System\Providers\SystemRepositoryServiceProvider::class,
         \App\Providers\ApiFoodServiceProvider::class,
         /*
          * Application Service Providers...
