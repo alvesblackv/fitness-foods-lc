@@ -5,6 +5,7 @@ namespace Domain\Product\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Domain\Product\Http\Requests\UpdateProductRequest;
 use Domain\Product\Repositories\ProductBaseRepository;
+use Illuminate\Http\JsonResponse;
 
 class UpdateProductController extends Controller
 {
@@ -12,13 +13,14 @@ class UpdateProductController extends Controller
     {
     }
 
-    public function __invoke(UpdateProductRequest $request)
+    public function __invoke(UpdateProductRequest $request): JsonResponse
     {
         $productEdited = $this->repository->updateProduct($request->validated());
 
-        if ($productEdited) {
-            return response()->noContent();
+        if (!$productEdited) {
+            return response()->json(['message' => 'Ops! Aconteceu algo inesperado. Tente novamente mais tarde!'], 422);
         }
-        return response()->json(['message' => 'Ops! Aconteceu algo inesperado. Tente novamente mais tarde!'], 422);
+        return response()->json(['message' => 'Produto editado com sucesso!']);
+
     }
 }

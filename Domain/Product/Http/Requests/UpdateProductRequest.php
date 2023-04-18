@@ -41,7 +41,7 @@ class UpdateProductRequest extends FormRequest
             'ingredients_text' => 'required',
             'traces' => 'required',
             'serving_quantity' => 'required|max:255',
-            'nutriscore_score' => 'required|decimal:2',
+            'nutriscore_score' => 'required',
             'nutriscore_grade' => 'required|max:255',
             'main_category' => 'required|max:255',
             'image_url' => 'required|url'

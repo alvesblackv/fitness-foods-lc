@@ -3,8 +3,8 @@
 namespace Domain\Product\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Domain\Product\Http\Requests\ShowProductRequest;
 use Domain\Product\Repositories\ProductBaseRepository;
-use Requests\ShowProductRequest;
 
 class ShowProductController extends Controller
 {
