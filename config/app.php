@@ -186,7 +186,8 @@ return [
          * Package Service Providers...
          */
 
-        \App\Providers\RepositoryServiceProvider::class,
+        \Domain\Product\Providers\RepositoryServiceProvider::class,
+        \Domain\CronJob\Providers\CronJobServiceProvider::class,
         \App\Providers\ApiFoodServiceProvider::class,
         /*
          * Application Service Providers...

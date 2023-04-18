@@ -1,10 +1,10 @@
 <?php
 
-use App\Http\Controllers\ApiStatus\ShowApiStatusController;
-use App\Http\Controllers\Product\DeleteProductController;
-use App\Http\Controllers\Product\ShowProductController;
-use App\Http\Controllers\Product\ShowProductsController;
-use App\Http\Controllers\Product\UpdateProductController;
+use Domain\Product\Http\Controllers\DeleteProductController;
+use Domain\Product\Http\Controllers\ShowProductController;
+use Domain\Product\Http\Controllers\ShowProductsController;
+use Domain\Product\Http\Controllers\UpdateProductController;
+use Domain\System\Http\Controllers\ShowSystemInfoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::middleware('api_key')->group(fn() => [
-    Route::get('/', ShowApiStatusController::class)->name('show-api-status'),
+    Route::get('/', ShowSystemInfoController::class)->name('show-api-status'),
 
     Route::prefix('/products')->group(fn() => [
         Route::put('/{code}', UpdateProductController::class)->name('product-update'),
