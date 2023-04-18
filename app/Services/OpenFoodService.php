@@ -3,8 +3,8 @@
 namespace App\Services;
 
 use App\Exceptions\FileNotReadableException;
-use App\Repository\Product\ProductBaseRepository;
 use Exception;
+use Domain\Product\Repositories\ProductBaseRepository;
 
 class OpenFoodService implements ApiFoodInterface
 {
