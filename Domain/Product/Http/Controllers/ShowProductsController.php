@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Product;
+namespace Domain\Product\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Repository\Product\ProductBaseRepository;
-use Illuminate\Http\Request;
+use Domain\Product\Repositories\ProductBaseRepository;
 
 class ShowProductsController extends Controller
 {

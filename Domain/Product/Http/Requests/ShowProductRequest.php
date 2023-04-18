@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Product;
+namespace Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class DeleteProductRequest extends FormRequest
+class ShowProductRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -14,12 +14,11 @@ class DeleteProductRequest extends FormRequest
         return true;
     }
 
+   protected function prepareForValidation()
+   {
+       $this->merge(['code' => $this->code]);
+   }
 
-
-    public function prepareForValidation()
-    {
-        $this->merge(['code' => $this->code]);
-    }
     public function rules(): array
     {
         return [

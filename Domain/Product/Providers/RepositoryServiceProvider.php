@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Providers;
+namespace Domain\Product\Providers;
 
-use App\Repository\Product\ProductBaseRepository;
-use App\Repository\Product\ProductEloquentRepository;
+use Domain\Product\Repositories\ProductBaseRepository;
+use Domain\Product\Repositories\ProductEloquentRepository;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoryServiceProvider extends ServiceProvider

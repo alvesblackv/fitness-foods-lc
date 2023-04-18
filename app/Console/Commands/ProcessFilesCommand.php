@@ -2,8 +2,9 @@
 
 namespace App\Console\Commands;
 
-use App\Repository\Product\ProductBaseRepository;
 use App\Services\ApiFoodInterface;
+use Domain\CronJob\Repositories\CronJobBaseRepository;
+use Domain\CronJob\ValueObjects\Status;
 use Exception;
 use Illuminate\Console\Command;
 use Log;
@@ -24,7 +25,7 @@ class ProcessFilesCommand extends Command
      */
     protected $description = 'Comando responsável por processar a API';
 
-    public function handle(ApiFoodInterface $apiFood)
+    public function handle(ApiFoodInterface $apiFood, CronJobBaseRepository $cronJobRepository)
     {
         foreach ($apiFood->getFilesName() as $fileName) {
 
@@ -37,8 +38,9 @@ class ProcessFilesCommand extends Command
                 $apiFood->processStream($stream);
 
                 $this->info("[ARQUIVO: $fileName] Arquivo lido com sucesso!");
-
+                $cronJobRepository->storeCronStatus($fileName, Status::DONE);
             } catch (Exception $exception) {
+                $cronJobRepository->storeCronStatus($fileName, Status::FAILURE);
                 $this->info("[ARQUIVO: $fileName] Não foi possível abrir para leitura");
                 Log::error($exception->getMessage());
             }
