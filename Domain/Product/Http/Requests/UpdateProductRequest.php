@@ -51,6 +51,7 @@ class UpdateProductRequest extends FormRequest
     public function messages(): array
     {
         return [
+            'exists' => 'O código informado não é válido',
             'required' => 'O campo :attribute é obrigatório',
             'max' => 'O campo :attribute só é aceito no máximo :max caracteres',
             'url' => 'Ops! A URL informada não é valida',
