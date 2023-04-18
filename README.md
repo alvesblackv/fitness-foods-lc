@@ -11,6 +11,7 @@ Esta aplicação tem o objetivo de consumir a API da [Open Food Facts](https://b
     - [Autenticação](#autenticação)
     - [Documentação](#documentação)
     - [Testes](#testes)
+    - [Vídeo](#vídeo)
     - [Mais informações](#mais-informações)
 
 ## Dependências para executar local
@@ -76,7 +77,11 @@ Para executar testes da aplicação, basta executar o comando abaixo
 ```
 docker-compose exec web php artisan test
 ```
-
+## Vídeo
+O link do vídeo mostrando um pouco do projeto :)
+```
+https://www.loom.com/share/0f3d99958d704d5d80456e48f9482ac0
+```
 ## Mais informações
 Segue sites que foram essenciais para executar esse projeto
 - [Refactoring Guru](https://refactoring.guru/design-patterns/)
