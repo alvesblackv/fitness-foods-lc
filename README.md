@@ -1,5 +1,5 @@
 # Open Food Facts
-Esta aplicação tem o objetivo de consumir a API da  [Open Food Facts](https://br.openfoodfacts.org/data), persitir os dados em um banco de dados local e manipular esses dados persistidos na própria aplicação, através de uma API RESTful.
+Esta aplicação tem o objetivo de consumir a API da [Open Food Facts](https://br.openfoodfacts.org/data), persitir os dados em um banco de dados local e manipular esses dados persistidos na própria aplicação, através de uma API RESTful.
 ## Índice
 - [Open Food Facts]
     - [Índice](#índice)
@@ -62,9 +62,10 @@ Para conseguir acessar os endpoints, é necessário definir uma API_KEY, abra o 
 ```
 API_KEY=SUAKEYAQUI
 ```
+Caso for realizar qualquer autenticação nos endpoints (exceto o da documentação) é necessário enviar um header da chave 'x-api-token' e o seu valor será o que está no env API_KEY
 
 ## Documentação
-Após rodar a aplicação, basta acessar o link abaixo para conferir o swagger ou [clique aqui](https://www.postman.com/dentos-team/workspace/marcelo-public-workspace/collection/19681059-f0483e70-a36d-42dc-ac01-e276658cea53?action=share&creator=19681059)
+Após rodar a aplicação, basta acessar o link abaixo para conferir o swagger (Open API 3.0) ou [clique aqui](https://www.postman.com/dentos-team/workspace/marcelo-public-workspace/collection/19681059-f0483e70-a36d-42dc-ac01-e276658cea53?action=share&creator=19681059)
 para visualizar a colection do Postman
 ```
 http://localhost:8000/documentation
