@@ -1,6 +1,6 @@
 <?php
 
-namespace Controllers\Product;
+namespace Tests\Feature\Product;
 
 use App\Models\Product;
 use Tests\TestCase;
@@ -12,14 +12,14 @@ class ShowProductTest extends TestCase
     {
         $product = Product::factory()->create();
         $response = $this->getJson(route('product-show',
-            ['code' => $product->code]),
+            ['code' => $product['code']]),
             ['x-api-token' => config('services.auth.api_token')]
         );
 
         $response->assertOk();
         $this->assertDatabaseHas('products', [
-            'code' => $product->code,
-            'product_name' => $product->product_name
+            'code' => $product['code'],
+            'product_name' => $product['product_name']
         ]);
     }
 
@@ -27,7 +27,7 @@ class ShowProductTest extends TestCase
     {
         $product = Product::factory()->make();
         $response = $this->getJson(route('product-show',
-            ['code' => $product->code]),
+            ['code' => $product['code']]),
             ['x-api-token' => config('services.auth.api_token')]
         );
 
