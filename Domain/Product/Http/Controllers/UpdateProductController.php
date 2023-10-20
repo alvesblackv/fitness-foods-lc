@@ -5,7 +5,6 @@ namespace Domain\Product\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Domain\Product\Http\Requests\UpdateProductRequest;
 use Domain\Product\Repositories\ProductBaseRepository;
-use Illuminate\Http\JsonResponse;
 
 class UpdateProductController extends Controller
 {
@@ -13,7 +12,7 @@ class UpdateProductController extends Controller
     {
     }
 
-    public function __invoke(UpdateProductRequest $request): JsonResponse
+    public function __invoke(UpdateProductRequest $request)
     {
         $productEdited = $this->repository->updateProduct($request->validated());
 
