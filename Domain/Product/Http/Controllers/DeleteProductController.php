@@ -14,7 +14,7 @@ class DeleteProductController extends Controller
 
     public function __invoke(DeleteProductRequest $request)
     {
-        if($this->repository->deleteProduct($request->code)) {
+        if($this->repository->deleteProduct($request->input('code'))) {
             return response()->json(['message' => 'O produto foi atualizado para o status trash com sucesso!']);
         }
         return response()->json(['message' => 'Ops! Aconteceu algo inesperado'], 422);
